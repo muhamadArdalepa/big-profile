@@ -10,22 +10,14 @@
 
 @section('content')
 <section class="py-5 px-4"
-    style="background-image: url('/images/home-bg.jpg');background-size: cover; background-position: center center;"
+    style="background-image: url('/storage/images/{{$home->bg_image}}');background-size: cover; background-position: center center;"
     id="header">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center align-items-md-start">
         <h1 id="headerTitle"
-            class="align-items-center align-items-md-start fs-4 d-flex flex-column fw-bold text-white lh-1">
-            <div>
-                #MudahnyaInternet
-            </div>
-            <div>
-                Dirumah
-            </div>
+            class="align-items-center align-items-md-start fs-4 d-flex flex-column fw-bold text-white lh-1 ">
+                {{$home->title}}
         </h1>
-        <h2 id="headerSubtitle" class="text-white fs-6 text-center text-md-start col-md-6">Dapatkan Internet terbaik di
-            kota kamu,
-            Jelajahi seluruh dunia teknologi digital dan
-            hiburan ke rumah</h2>
+        <h2 id="headerSubtitle" class="text-white fs-6 text-center text-md-start col-md-6">{{$home->subtitle}}</h2>
     </div>
 </section>
 
