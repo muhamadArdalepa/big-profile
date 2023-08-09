@@ -19,7 +19,26 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'password' => 'test',
+            'password' => bcrypt('test'),
+        ]);
+        \App\Models\Paket::create([
+            'title' => 'Paket Dasar 1',
+            'subtitle' => 'Full Fiber To The Home',
+            'kecepatan' => 10,
+            'harga' => 150,
+            'include' => 'Up to 250,000 tracked visits',
+
+        ]);
+        \App\Models\Home::create([
+            'title' => 'Test User',
+            'subtitle' => 'test@example.com',
+            'bg_image' => 'home-bg.jpg',
+            'karyawan' => 67,
+            'user' => 1500,
+            'partner' => 20,
+            'keunggulan' => 'Lorem ipsum dolor sit amet consectetur. Ultricies dictum tellus dolor adipiscing vitae orci cursus ultricies tempor. Tempor amet enim risus non.',
+            'visi' => 'Lorem ipsum dolor sit amet consectetur. Ultricies dictum tellus dolor adipiscing vitae orci cursus ultricies tempor. Tempor amet enim risus non.',
+            'misi' => 'Lorem ipsum dolor sit amet consectetur. Ultricies dictum tellus dolor adipiscing vitae orci cursus ultricies tempor. Tempor amet enim risus non.',
         ]);
     }
 }

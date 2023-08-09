@@ -42,3 +42,4 @@ Route::middleware('auth')->group(function () {
 // public
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/paket', [PageController::class, 'paket'])->name('paket');
+Route::get('/info', [PageController::class, 'info'])->name('info');

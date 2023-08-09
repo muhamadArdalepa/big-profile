@@ -64,6 +64,36 @@
                                 <input type="file" name="headerImage" class="form-control-file ml-3" id="headerImage">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="karyawan">Karyawan</label>
+                            <input type="number" name="karyawan" class="form-control" id="karyawan"
+                                value="{{$home->karyawan}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="user">User</label>
+                            <input type="number" name="user" class="form-control" id="user"
+                                value="{{$home->user}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="partner">partner</label>
+                            <input type="number" name="partner" class="form-control" id="partner"
+                                value="{{$home->partner}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="keunggulan">Keunggulan Bignet</label>
+                            <input type="text" name="keunggulan" class="form-control" id="keunggulan"
+                                value="{{$home->keunggulan}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="visi">Visi</label>
+                            <input type="text" name="visi" class="form-control" id="visi"
+                                value="{{$home->visi}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="misi">Misi</label>
+                            <input type="text" name="misi" class="form-control" id="misi"
+                                value="{{$home->misi}}">
+                        </div>
                     </div>
                     <div class="card-action">
                         <button class="btn btn-success" type="submit">Submit</button>

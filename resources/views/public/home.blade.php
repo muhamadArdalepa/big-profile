@@ -36,15 +36,15 @@
             <div class="col-md-6 text-danger">
                 <div class="d-flex justify-content-between justify-content-md-end gap-3">
                     <div class="text-center">
-                        <h3 class="fw-bold">67+</h3>
+                        <h3 class="fw-bold">{{$home->karyawan}}</h3>
                         <small class="text-muted">Karyawan</small>
                     </div>
                     <div class="text-center">
-                        <h3 class="fw-bold">1500+</h3>
+                        <h3 class="fw-bold">{{$home->user}}</h3>
                         <small class="text-muted">User</small>
                     </div>
                     <div class="text-center">
-                        <h3 class="fw-bold">27+</h3>
+                        <h3 class="fw-bold">{{$home->partner}}</h3>
                         <small class="text-muted">Partners</small>
                     </div>
                 </div>
@@ -61,8 +61,7 @@
         <div class="col-md-7 text-center text-md-start">
             <h3 class="fw-bold mb-3">Keunggulan <span class="text-danger">BIGNET</span></h3>
             <p class="text-muted lh-sm">
-                Lorem ipsum dolor sit amet consectetur. Ultricies dictum tellus dolor adipiscing vitae orci cursus
-                ultricies tempor. Tempor amet enim risus non.
+                {{$home->keunggulan}}
             </p>
             <div class="d-flex gap-2 text-danger text-start">
                 <div class="d-flex align-items-center gap-2">
@@ -85,16 +84,14 @@
 <section class="text-center container">
     <div class="row align-items-center text-md-end flex-column-reverse flex-md-row">
         <div class="col-md-7">
-            <h3 class="fw-bold mb-3">Tentang <span class="text-danger">BIGNET</span></h3>
+            <h3 class="fw-bold mb-3">Tentang <span class="text-danger">BIGNET</span></h3>   
             <h4 class="fw-bold mb-2">Visi</h4>
             <p class="text-muted lh-sm">
-                Lorem ipsum dolor sit amet consectetur. Ultricies dictum tellus dolor adipiscing vitae orci cursus
-                ultricies tempor. Tempor amet enim risus non.
+                {{$home->visi}}
             </p>
             <h4 class="fw-bold mb-2">Misi</h4>
             <p class="text-muted lh-sm">
-                Lorem ipsum dolor sit amet consectetur. Ultricies dictum tellus dolor adipiscing vitae orci cursus
-                ultricies tempor. Tempor amet enim risus non.
+                {{$home->misi}}
             </p>
         </div>
         <div class="col-md-5 text-start">
@@ -107,50 +104,30 @@
     <p class="text-muted lh-sm">Berbagai Paket yang dapat sesuai dengan layanan kebutuhan internet dan multimedia anda
     </p>
     <div class="row">
+        @foreach ($pakets as $paket)
         <div class="col-md-4 offset-md-2 col-lg-3 offset-lg-3 ">
             <div class="rounded-4 shadow-lg p-4 ">
                 <div class="d-flex gap-3 align-items-end align-items-center flex-md-column justify-content-center">
                     <img src="/images/logo/big-warna-full.png" alt="logo bignet" height="70">
                     <div class="fs-5 text-start text-md-center lh-1">
-                        <h4>Paket <strong>Dasar 1</strong></h4>
-                        <small class="fs-6">Full Fiber To The Home</small>
+                        <h4>{{$paket->title}}</h4>
+                        <small class="fs-6">{{$paket->subtitle}}</small>
                     </div>
                 </div>
                 <div class="d-flex mt-3 justify-content-between flex-md-column align-items-center gap-3">
                     <div class="">
-                        <div>Up To <strong class="text-danger">10 Mbps</strong></div>
+                        <div>Up To <strong class="text-danger">{{$paket->kecepatan}} Mbps</strong></div>
                         <div>Download/Upload</div>
                         <div>Unlimited Quota</div>
                     </div>
                     <div class="flex-grow-1">
-                        <div class="mb-2"><strong class="text-danger fw-bold display-5">150rb</strong> /Bulan</div>
+                        <div class="mb-2"><strong class="text-danger fw-bold display-5">{{$paket->harga}}rb</strong> /Bulan</div>
                         <button class="btn btn-danger w-100">Daftar Paket</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4  col-lg-3 ">
-            <div class="rounded-4 shadow-lg p-4 ">
-                <div class="d-flex gap-3 align-items-end align-items-center flex-md-column justify-content-center">
-                    <img src="/images/logo/big-warna-full.png" alt="logo bignet" height="70">
-                    <div class="fs-5 text-start text-md-center lh-1">
-                        <h4>Paket <strong>Dasar 1</strong></h4>
-                        <small class="fs-6">Full Fiber To The Home</small>
-                    </div>
-                </div>
-                <div class="d-flex mt-3 justify-content-between flex-md-column align-items-center gap-3">
-                    <div class="">
-                        <div>Up To <strong class="text-danger">10 Mbps</strong></div>
-                        <div>Download/Upload</div>
-                        <div>Unlimited Quota</div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <div class="mb-2"><strong class="text-danger fw-bold display-5">150rb</strong> /Bulan</div>
-                        <button class="btn btn-danger w-100">Daftar Paket</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 
 </section>

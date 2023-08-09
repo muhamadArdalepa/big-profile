@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home;
+use App\Models\Paket;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,7 +16,8 @@ class HomeController extends Controller
     public function index()
     {
         $home = Home::first();
-        return view('public.home', compact('home'));
+        $pakets = Paket::all();
+        return view('public.home', compact('home','pakets'));
     }
 
     /**
@@ -74,6 +76,12 @@ class HomeController extends Controller
             'headerTitle' => 'required|string',
             'headerSubtitle' => 'required|string',
             'headerImage' => 'image|mimes:jpeg,png,jpg,gif',
+            'karyawan' => 'required|numeric',
+            'user' => 'required|numeric',
+            'partner' => 'required|numeric',
+            'keunggulan' => 'required|string',
+            'visi' => 'required|string',
+            'misi' => 'required|string',
         ]);
 
         
@@ -88,6 +96,12 @@ class HomeController extends Controller
             // Store the image file name in the bg_image field of the Home model
             $home->bg_image = $bgImageFileName;
         }
+        $home->karyawan = $request->input('karyawan');
+        $home->user = $request->input('user');
+        $home->partner = $request->input('partner');
+        $home->keunggulan = $request->input('keunggulan');
+        $home->visi = $request->input('visi');
+        $home->misi = $request->input('misi');
         $home->save();
         return redirect()->back()->with('success', 'Data updated successfully!');
     }

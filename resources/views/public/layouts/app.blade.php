@@ -18,9 +18,10 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
-        .nav-link{
+        .nav-link {
             padding: 1rem 1rem;
         }
+
         .nav-link.active {
             color: #DF1C2D !important;
             font-weight: 900;
@@ -35,7 +36,7 @@
         <nav class="navbar navbar-expand-md navbar-light p-0 bg-white fixed-top" id="navbar">
             <div class="container">
                 <a class="navbar-brand " href="{{ url('/') }}">
-                    <img src="{{asset('images/logo/big-warna-full.png')}}" alt="logo bignet" height="35">
+                    <img src="{{ asset('images/logo/big-warna-full.png') }}" alt="logo bignet" height="35">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -122,23 +123,24 @@
 
                         </li>
                         @auth
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                         @endauth
                     </ul>
                 </div>
@@ -149,6 +151,64 @@
             @yield('content')
         </main>
     </div>
+    <footer class="bg-danger text-white">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <h5 class="mb-4">Paket</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="" class="nav-link p-0 py-2">Paket</a></li>
+                        <li><a href="" class="nav-link p-0 py-2">Promo</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 mb-5 mb-md-0">
+                    <h5 class="mb-4">Info</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="" class="nav-link p-0 py-2">Tentang Bignet</a></li>
+                        <li><a href="" class="nav-link p-0 py-2">Hubungi Kami</a></li>
+                        <li><a href="" class="nav-link p-0 py-2">Histori</a></li>
+                        <li><a href="" class="nav-link p-0 py-2">Kerja Sama</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h5 class="mb-4">Galeri</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="" class="nav-link p-0 py-2">Galeri Foto Proyek</a></li>
+                        <li><a href="" class="nav-link p-0 py-2">Galeri Foto Internal</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h5 class="mb-4">Bignet Home Care</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="" class="nav-link p-0 py-2">Call Center: 123123123</a></li>
+                        <li><a href="" class="nav-link p-0 py-2">Email: Home_care@bignet.id</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="bg-white px-5 py-3">
+        <div class="d-flex align-items-center">
+            <div class="text-muted">Copyright © 2022 BIGNET| All Rights Reserved </div>
+            <div class="d-flex gap-2 ms-auto">
+                <a href="#!" class="text-danger text-decoration-none">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#!" class="text-danger text-decoration-none">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#!" class="text-danger text-decoration-none">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#!" class="text-danger text-decoration-none">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#!" class="text-danger text-decoration-none">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
     <script>
         const navbar = document.getElementById('navbar');
         const main = document.getElementsByTagName('main')[0];
