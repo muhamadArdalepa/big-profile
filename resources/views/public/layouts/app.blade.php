@@ -27,6 +27,12 @@
             font-weight: 900;
             border-bottom: 3px solid #DF1C2D;
         }
+
+        .bg-header {
+            background-image: url('/storage/images/{{ \App\Models\Home::select('bg_image')->first()->bg_image }}');
+            background-size: cover; 
+            background-position: center center;
+        }
     </style>
     @stack('css')
 </head>
@@ -53,52 +59,63 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="/home" class="nav-link active">Home</a>
+                            <a href="/home"
+                                class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <li class="nav-item dropdown ">
+                            <a id="navbarDropdown"
+                                class="nav-link dropdown-toggle {{ Route::currentRouteName() == 'paket' ? 'active' : '' }}"
+                                href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" v-pre>
                                 Paket
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/paket">
-                                    Paket 1
+                                <a class="dropdown-item" href="/paket#paket">
+                                    Paket
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Paket 2
+                                <a class="dropdown-item" href="/paket#promo">
+                                    Promo
                                 </a>
                             </div>
 
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown"
+                                class="nav-link dropdown-toggle {{ Route::currentRouteName() == 'info' ? 'active' : '' }}"
+                                href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" v-pre>
                                 Info
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
-                                    Paket 1
+                                <a class="dropdown-item" href="info#Tentang">
+                                    Tentang
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Paket 2
+                                <a class="dropdown-item" href="info#Histori">
+                                    Histori
+                                </a>
+                                <a class="dropdown-item" href="info#KerjaSama">
+                                    Kerja Sama
+                                </a>
+                                <a class="dropdown-item" href="info#Hubungi">
+                                    Hubungi
                                 </a>
                             </div>
 
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle {{in_array(Route::currentRouteName(),['galeri.proyek','galeri.internal'])  ? 'active' : '' }}" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Gallery
+                                Galeri
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
-                                    Paket 1
+                                <a class="dropdown-item" href="/galeri-proyek">
+                                    Galeri Proyek
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Paket 2
+                                <a class="dropdown-item" href="/galeri-internal">
+                                    Galeri Internal
                                 </a>
                             </div>
 
@@ -130,13 +147,17 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/admin/home">
+                                        Dashboard
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </div>
@@ -209,6 +230,7 @@
             </div>
         </div>
     </footer>
+    @stack('modal')
     <script>
         const navbar = document.getElementById('navbar');
         const main = document.getElementsByTagName('main')[0];

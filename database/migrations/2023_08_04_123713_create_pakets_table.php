@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('pakets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->tinyInteger('is_promo')->length(1);
             $table->string('subtitle');
             $table->integer('kecepatan');
             $table->float('harga');

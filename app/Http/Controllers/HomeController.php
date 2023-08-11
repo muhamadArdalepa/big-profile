@@ -17,7 +17,7 @@ class HomeController extends Controller
     {
         $home = Home::first();
         $pakets = Paket::all();
-        return view('public.home', compact('home','pakets'));
+        return view('public.home', compact('home', 'pakets'));
     }
 
     /**
@@ -27,7 +27,6 @@ class HomeController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -59,8 +58,10 @@ class HomeController extends Controller
      */
     public function edit()
     {
-        $home = Home::first();
-        return view('admin.home', compact('home'));
+        $home = \App\Models\Home::first();
+        $info = \App\Models\Info::first();
+        $kontak = \App\Models\Kontak::first();
+        return view('admin.home', compact('home','info','kontak'));
     }
 
     /**
@@ -84,7 +85,7 @@ class HomeController extends Controller
             'misi' => 'required|string',
         ]);
 
-        
+
         $home = Home::first();
         $home->title = $request->input('headerTitle');
         $home->subtitle = $request->input('headerSubtitle');
@@ -103,7 +104,7 @@ class HomeController extends Controller
         $home->visi = $request->input('visi');
         $home->misi = $request->input('misi');
         $home->save();
-        return redirect()->back()->with('success', 'Data updated successfully!');
+        return redirect()->back()->with('success', 'Data Home Berhasil Diupdate!');
     }
 
     /**
