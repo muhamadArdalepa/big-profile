@@ -16,7 +16,8 @@
     <script src="https://kit.fontawesome.com/52c63e43bb.js" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    <link rel="stylesheet" href="{{ asset('build/assets/app-71905b06.css') }}">
     <style>
         .nav-link {
             padding: 1rem 1rem;
@@ -231,6 +232,7 @@
         </div>
     </footer>
     @stack('modal')
+    <script src="{{ asset('build/assets/app-66e7f68a.js') }}"></script>
     <script>
         const navbar = document.getElementById('navbar');
         const main = document.getElementsByTagName('main')[0];

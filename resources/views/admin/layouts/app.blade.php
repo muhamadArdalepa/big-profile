@@ -35,6 +35,9 @@
 </head>
 
 <body>
+    @guest
+        @yield('content')
+    @else
     <div class="wrapper">
         <div class="main-header">
             <!-- Logo Header -->
@@ -214,6 +217,8 @@
         </div>
 
     </div>
+    @endguest
+ 
     <!--   Core JS Files   -->
     <script src="{{ asset('atlantis/js/core/jquery.3.2.1.min.js') }}"></script>
     <script src="{{ asset('atlantis/js/core/popper.min.js') }}"></script>
@@ -226,23 +231,10 @@
     <!-- jQuery Scrollbar -->
     <script src="{{ asset('atlantis/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 
-
-    <!-- Chart JS -->
-    <script src="{{ asset('atlantis/js/plugin/chart.js/chart.min.js') }}"></script>
-
-    <!-- jQuery Sparkline -->
-    <script src="{{ asset('atlantis/js/plugin/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
-
-    <!-- Chart Circle -->
-    <script src="{{ asset('atlantis/js/plugin/chart-circle/circles.min.js') }}"></script>
-
     <!-- Datatables -->
     <script src="{{ asset('atlantis/js/plugin/datatables/datatables.min.js') }}"></script>
 
-    <!-- Bootstrap Notify -->
-    <script src="{{ asset('atlantis/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
-
-    <!-- Bootstrap Notify -->
+    <!-- Sweetalert -->
     <script src="{{ asset('atlantis/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 
     <!-- Atlantis JS -->
